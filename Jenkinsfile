@@ -1,6 +1,6 @@
 node {
     def app
-    def port = "8442"
+    def port = "9442"
     def local = "127.0.0.1" 
     stage('Clone repository') {
         /* Let's make sure we have the repository cloned to our workspace */
@@ -20,9 +20,7 @@ node {
     stage('Test image') {
         /* Ideally, we would run a test framework against our image.
          * For this example, we're using a Volkswagen-type approach ;-) */
-         v = sh(returnStdout: true, script:"""docker ps """)
-         echo "$v"
-        /*app.withRun("-p ${port}:8800"){c -> 
+        app.withRun("-p ${port}:8800"){c -> 
 	   value = sh(returnStdout: true, script:"""curl -i http://${local}:${port}/""").trim()
            if (value == "<h1>This is the siknucha in dev branch. Try /hello and /hello/Sammy</h1>"){
 		currentBuild.result = "PASS"
@@ -42,7 +40,7 @@ node {
                         echo "failure"
                     }
                 }
-            }*/
+            }
     }
 
     stage('Push image') {
