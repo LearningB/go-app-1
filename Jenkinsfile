@@ -1,6 +1,6 @@
 node {
     def app
-    def port = "8232"
+    def port = "8442"
     def local = "127.0.0.1" 
     stage('Clone repository') {
         /* Let's make sure we have the repository cloned to our workspace */
