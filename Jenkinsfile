@@ -22,7 +22,7 @@ node {
          * For this example, we're using a Volkswagen-type approach ;-) */
         app.withRun("-p ${port}:8800"){c -> 
 	   value = sh(returnStdout: true, script:"""curl -i http://${local}:${port}/""").trim()
-           /*if (value == "<h1>This is the siknucha in dev branch. Try /hello and /hello/Sammy</h1>"){
+           if (value == "<h1>This is the siknucha in dev branch. Try /hello and /hello/Sammy</h1>"){
 		currentBuild.result = "PASS"
             }else{
               currentBuild.result = "FAILURE"
@@ -40,7 +40,7 @@ node {
                         echo "failure"
                     }
                 }
-            }*/
+            }
     }
 
     stage('Push image') {
