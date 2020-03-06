@@ -12,7 +12,7 @@ node {
          * docker build on the command line */
 
 
-        app = docker.build("jungee/goapp"+":$BUILD_NUMBER")
+        app = docker.build("jungee/go"+":$BUILD_NUMBER")
 
     }
 
@@ -34,7 +34,7 @@ node {
         docker.withRegistry('https://registry.hub.docker.com', 'docker') {
 
             app.push("${env.BUILD_NUMBER}")
-            app.push("latest")
+            app.push("${env.BUILD_NUMBER}")
         }
     }
 }
