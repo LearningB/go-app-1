@@ -23,12 +23,13 @@ node {
         app.withRun("-p ${port}:8800"){c -> 
 	   value = sh(returnStdout: true, script:"""curl -i http://${local}:${port}/""").trim()
            if (value == "<h1>This is the siknucha in dev branch. Try /hello and /hello/Sammy</h1>"){
-		currentBuild.result = "PASS"
+		c = "PASS"
             }else{
-              currentBuild.result = "FAILURE"
+              c = "FAILURE"
             }
            echo "$value"
         }
+        echo "$c"
         echo "$currentBuild.result"	
     }
 
