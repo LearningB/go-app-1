@@ -21,7 +21,7 @@ node {
         /* Ideally, we would run a test framework against our image.
          * For this example, we're using a Volkswagen-type approach ;-) */
         app.withRun('-p ${port}:8800'){c -> 
-	   value = sh(returnStdout: true, script:"""curl -i http://${local}:8080/""").trim()
+	   value = sh(returnStdout: true, script:"""curl -i http://${local}:${port}/""").trim()
            echo "$value"
         }	
         app.inside {
