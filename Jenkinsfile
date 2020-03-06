@@ -1,6 +1,6 @@
 node {
     def app
-    def port = "8123"
+    def port = "8232"
     def local = "127.0.0.1" 
     stage('Clone repository') {
         /* Let's make sure we have the repository cloned to our workspace */
@@ -13,7 +13,7 @@ node {
          * docker build on the command line */
 
 
-        app = docker.build("jungee/go:"+"$BUILD_NUMBER")
+        app = docker.build("jungee/go:v"+"$BUILD_NUMBER")
 
     }
 
@@ -37,8 +37,8 @@ node {
 
         docker.withRegistry('https://registry.hub.docker.com', 'docker') {
 
-            app.push("v+${env.BUILD_NUMBER}")
-            app.push("v+${env.BUILD_NUMBER}")
+            app.push("v${env.BUILD_NUMBER}")
+            app.push("v${env.BUILD_NUMBER}")
         }
     }
 }
