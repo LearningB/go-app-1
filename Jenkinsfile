@@ -29,7 +29,7 @@ node {
             }
            echo "$value"
         }	
-        post {
+        /*post {
                 success {
                     script {
                         echo "success"
@@ -40,7 +40,7 @@ node {
                         echo "failure"
                     }
                 }
-            }
+            }*/
     }
 
     stage('Push image') {
