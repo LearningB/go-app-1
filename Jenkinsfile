@@ -20,7 +20,7 @@ node {
     stage('Test image') {
         /* Ideally, we would run a test framework against our image.
          * For this example, we're using a Volkswagen-type approach ;-) */
-         v = sh(returnStdout: true, script """docker ps """)
+         v = sh(returnStdout: true, script:"""docker ps """)
          echo "$v"
         /*app.withRun("-p ${port}:8800"){c -> 
 	   value = sh(returnStdout: true, script:"""curl -i http://${local}:${port}/""").trim()
