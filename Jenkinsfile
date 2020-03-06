@@ -28,7 +28,8 @@ node {
               currentBuild.result = "FAILURE"
             }
            echo "$value"
-        }	
+        }
+        echo "$currentBuild.result"	
     }
 
     stage('Push image') {
