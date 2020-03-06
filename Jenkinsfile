@@ -29,18 +29,6 @@ node {
             }
            echo "$value"
         }	
-        /*post {
-                success {
-                    script {
-                        echo "success"
-                    }
-                }
-                failure {
-                    script {
-                        echo "failure"
-                    }
-                }
-            }*/
     }
 
     stage('Push image') {
