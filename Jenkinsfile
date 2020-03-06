@@ -1,6 +1,7 @@
 node {
     def app
-
+    def port = 8123
+    def local = 127.0.0.1 
     stage('Clone repository') {
         /* Let's make sure we have the repository cloned to our workspace */
 
@@ -19,8 +20,8 @@ node {
     stage('Test image') {
         /* Ideally, we would run a test framework against our image.
          * For this example, we're using a Volkswagen-type approach ;-) */
-        app.withRun('-p 8123:8800'){c -> 
-	   value = sh(returnStdout: true, script:"""curl -i http://${hostIp(c)}:8080/""").trim()
+        app.withRun('-p ${port}:8800'){c -> 
+	   value = sh(returnStdout: true, script:"""curl -i http://${local}:8080/""").trim()
            echo "$value"
         }	
         app.inside {
