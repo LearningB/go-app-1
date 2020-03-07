@@ -3,6 +3,7 @@ node {
     def port = "9442"
     def local = "127.0.0.1"
     def current 
+    def slackResponse = slackSend(channel: "cool-threads", message: "Here is the primary message")
     stage('Clone repository') {
         /* Let's make sure we have the repository cloned to our workspace */
 
@@ -32,6 +33,7 @@ node {
         }
         echo "$current"	
 	echo "$BRANCH_NAME"
+	slackSend(channel: slackResponse.threadId, message: "The branch $BRANCH_NAME is building")
     }
 
     stage('Push image') {
