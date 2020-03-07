@@ -30,8 +30,7 @@ node {
             }
            echo "$value"
         }
-        echo "$current"
-        echo "$currentBuild.result"	
+        echo "$current"	
     }
 
     stage('Push image') {
