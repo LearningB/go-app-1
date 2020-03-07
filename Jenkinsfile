@@ -30,7 +30,7 @@ node {
             }
            echo "$value"
         }
-        echo "$c"
+        echo "$current"
         echo "$currentBuild.result"	
     }
 
