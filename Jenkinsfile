@@ -31,6 +31,7 @@ node {
            echo "$value"
         }
         echo "$current"	
+	echo "$BRANCH_NAME"
     }
 
     stage('Push image') {
