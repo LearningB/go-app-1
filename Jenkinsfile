@@ -33,7 +33,7 @@ node {
         }
         echo "$current"	
 	echo "$BRANCH_NAME"
-	slackSend(channel: slackResponse.threadId, message: "The branch $BRANCH_NAME is building now")
+	slackSend(channel: slackResponse.threadId, message: "The branch $BRANCH_NAME is building now for $CHANGE_TARGET")
     }
 
     stage('Push image') {
