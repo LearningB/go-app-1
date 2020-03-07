@@ -31,6 +31,7 @@ node {
            echo "$value"
         }
         echo "$current"	
+	echo "changed"
     }
 
     stage('Push image') {
